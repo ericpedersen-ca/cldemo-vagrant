@@ -2,9 +2,8 @@
 
 set -e
 
-#apt-get install git python3-pip
-#sudo pip3 install pip --upgrade
-#sudo pip3 install setuptools ipaddress pydotplus jinja2 --upgrade
+wget https://raw.githubusercontent.com/CumulusNetworks/topology_converter/master/requirements.txt
+pip3 install -r ./requirements.txt
 
 #vagrant destroy -f
 wget https://raw.githubusercontent.com/CumulusNetworks/topology_converter/master/topology_converter.py
@@ -28,4 +27,4 @@ cp ./Vagrantfile ./Vagrantfile-kvm
 ./topology_converter.py ./topology.dot
 cp ./Vagrantfile ./Vagrantfile-vbox
 
-rm -rfv ./templates ./topology_converter.py ./topology_converter/
+rm -rfv ./templates ./topology_converter.py ./topology_converter/ requirements.txt

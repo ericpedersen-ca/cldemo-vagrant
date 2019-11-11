@@ -2,14 +2,14 @@
 
 set -e
 
-wget https://raw.githubusercontent.com/CumulusNetworks/topology_converter/master/requirements.txt
+wget -O requirements.txt https://gitlab.com/cumulus-consulting/tools/topology_converter/raw/development/requirements.txt?inline=false
 pip3 install -r ./requirements.txt
 
 #vagrant destroy -f
-wget https://raw.githubusercontent.com/CumulusNetworks/topology_converter/master/topology_converter.py
+wget -O ./topology_converter.py https://gitlab.com/cumulus-consulting/tools/topology_converter/raw/development/topology_converter.py?inline=false
 chmod +x ./topology_converter.py
 mkdir -p ./templates/
-wget -O ./templates/Vagrantfile.j2 https://raw.githubusercontent.com/CumulusNetworks/topology_converter/master/templates/Vagrantfile.j2
+wget -O ./templates/Vagrantfile.j2 https://gitlab.com/cumulus-consulting/tools/topology_converter/raw/development/templates/Vagrantfile.j2?inline=false
 
 # Write Vagrantfile for Virtualbox (Large Memory)
 ./topology_converter.py ./topology_large_memory.dot

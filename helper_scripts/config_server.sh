@@ -12,9 +12,13 @@ echo "retry 1;" >> /etc/dhcp/dhclient.conf
 echo -e "auto lo" > /etc/network/interfaces
 echo -e "iface lo inet loopback\n\n" >> /etc/network/interfaces
 
-#Add vagrant interface
+#Add oob interface
 echo -e "\n\nauto eth0" >> /etc/network/interfaces
 echo -e "iface eth0 inet dhcp\n\n" >> /etc/network/interfaces
+
+#Add vagrant interface
+echo -e "\n\nauto vagrant" >> /etc/network/interfaces
+echo -e "iface vagrant inet dhcp\n\n" >> /etc/network/interfaces
 
 useradd cumulus -m -s /bin/bash
 echo "cumulus:CumulusLinux!" | chpasswd
